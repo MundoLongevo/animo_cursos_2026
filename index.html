@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ânimo Desenvolvimento Humano — Portfólio de Treinamentos</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black:#080C0B; --white:#F8FAF9; --green:#00873D; --green-dark:#005526;
+  --green-light:#00B352; --green-pale:#D6F0E2; --amber:#E8A000;
+  --grey:#5E6E67; --grey-light:#EBF0ED; --ink:#0F1D17;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--white);color:var(--ink);font-family:'Plus Jakarta Sans',sans-serif;font-weight:400;line-height:1.65;overflow-x:hidden;}
+::-webkit-scrollbar{width:3px;}::-webkit-scrollbar-thumb{background:var(--green);}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(8,12,11,0.96);backdrop-filter:blur(16px);border-bottom:1px solid rgba(0,135,61,0.25);padding:0 60px;height:62px;display:flex;align-items:center;justify-content:space-between;}
+.nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.nav-icon{width:34px;height:34px;background:var(--green);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:17px;font-weight:900;color:white;clip-path:polygon(0 0,100% 0,100% 75%,75% 100%,0 100%);}
+.nav-name{font-size:14px;font-weight:700;color:white;line-height:1.15;}
+.nav-sub{font-size:8.5px;color:rgba(255,255,255,0.38);letter-spacing:2.5px;text-transform:uppercase;}
+.nav-links{display:flex;align-items:center;gap:36px;}
+.nav-links a{color:rgba(255,255,255,0.5);text-decoration:none;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;transition:color 0.2s;}
+.nav-links a:hover{color:var(--green-light);}
+.nav-btn{background:var(--green)!important;color:white!important;padding:8px 20px;font-size:11px!important;}
+
+.hero{min-height:100vh;background:var(--black);position:relative;overflow:hidden;display:flex;padding-top:62px;}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 80% 50%,rgba(0,135,61,0.12) 0%,transparent 70%),radial-gradient(ellipse 40% 50% at 20% 80%,rgba(0,179,82,0.07) 0%,transparent 60%);}
+.hero-grid{position:absolute;inset:0;opacity:0.05;background-image:repeating-linear-gradient(0deg,transparent,transparent 79px,rgba(0,135,61,1) 80px),repeating-linear-gradient(90deg,transparent,transparent 79px,rgba(0,135,61,1) 80px);}
+.hero-inner{position:relative;z-index:2;max-width:1160px;margin:0 auto;padding:0 60px;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;min-height:calc(100vh - 62px);}
+.hero-eyebrow{font-size:10px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--green-light);display:flex;align-items:center;gap:12px;margin-bottom:28px;}
+.hero-eyebrow::before{content:'';display:inline-block;width:28px;height:2px;background:var(--green-light);}
+.hero-headline{font-family:'Playfair Display',serif;font-size:clamp(42px,5.5vw,68px);font-weight:900;color:white;line-height:1.05;margin-bottom:28px;letter-spacing:-1px;}
+.hero-headline em{font-style:italic;color:var(--green-light);}
+.hero-lead{font-size:16px;color:rgba(255,255,255,0.6);line-height:1.85;max-width:500px;margin-bottom:44px;}
+.hero-lead strong{color:rgba(255,255,255,0.9);font-weight:600;}
+.hero-actions{display:flex;align-items:center;gap:20px;}
+.btn-primary{background:var(--green);color:white;padding:14px 32px;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:background 0.2s,transform 0.2s;}
+.btn-primary:hover{background:var(--green-light);transform:translateY(-2px);}
+.btn-ghost{color:rgba(255,255,255,0.45);font-size:12px;font-weight:600;letter-spacing:1px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.15);padding-bottom:2px;transition:color 0.2s;}
+.btn-ghost:hover{color:white;}
+
+.world-label{font-size:9px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--amber);margin-bottom:16px;}
+.vuca-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;}
+.vuca-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);padding:18px 20px;transition:background 0.3s;}
+.vuca-card:hover{background:rgba(0,135,61,0.1);}
+.vuca-letter{font-family:'Playfair Display',serif;font-size:32px;font-weight:900;line-height:1;margin-bottom:4px;}
+.vuca-word{font-size:9.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:5px;}
+.vuca-desc{font-size:11px;color:rgba(255,255,255,0.4);line-height:1.55;}
+.vuca-divider{display:flex;align-items:center;gap:16px;padding:16px 0;}
+.vuca-divider-line{flex:1;height:1px;background:rgba(255,255,255,0.08);}
+.vuca-divider-text{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.22);font-weight:600;white-space:nowrap;}
+
+.problem-strip{background:var(--ink);padding:72px 0;}
+.problem-grid{max-width:1160px;margin:0 auto;padding:0 60px;display:grid;grid-template-columns:repeat(4,1fr);gap:2px;}
+.problem-item{padding:36px 28px;background:rgba(255,255,255,0.03);border-top:2px solid transparent;transition:border-color 0.3s,background 0.3s;}
+.problem-item:hover{border-color:var(--green);background:rgba(0,135,61,0.07);}
+.problem-icon{font-size:26px;margin-bottom:14px;}
+.problem-title{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:white;margin-bottom:8px;line-height:1.3;}
+.problem-desc{font-size:12px;color:rgba(255,255,255,0.42);line-height:1.75;}
+
+.container{max-width:1160px;margin:0 auto;padding:0 60px;}
+.section-eyebrow{font-size:9px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--green);display:flex;align-items:center;gap:12px;margin-bottom:12px;}
+.section-eyebrow::after{content:'';flex:0 0 24px;height:2px;background:var(--green);}
+
+.pillars-section{background:var(--white);padding:100px 0;}
+.pillars-title{font-family:'Playfair Display',serif;font-size:clamp(34px,4vw,52px);font-weight:900;color:var(--ink);line-height:1.1;max-width:640px;}
+.pillars-title em{font-style:italic;color:var(--green);}
+.pillars-sub{font-size:15px;color:var(--grey);max-width:540px;margin-top:16px;line-height:1.8;margin-bottom:48px;}
+.pillar-tabs{display:flex;gap:2px;flex-wrap:wrap;margin-bottom:4px;}
+.pillar-tab{padding:10px 22px;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;border:none;background:var(--grey-light);color:var(--grey);transition:background 0.2s,color 0.2s;font-family:'Plus Jakarta Sans',sans-serif;}
+.pillar-tab.active{background:var(--green);color:white;}
+.pillar-tab:hover:not(.active){background:var(--green-pale);color:var(--green-dark);}
+.pillar-panel{display:none;}
+.pillar-panel.active{display:block;}
+.pillar-content{background:var(--grey-light);padding:48px;display:grid;grid-template-columns:300px 1fr;gap:56px;align-items:start;}
+.pillar-name{font-family:'Playfair Display',serif;font-size:26px;font-weight:900;color:var(--ink);line-height:1.2;margin-bottom:14px;}
+.pillar-tagline{font-family:'Playfair Display',serif;font-style:italic;font-size:14px;color:var(--green-dark);line-height:1.6;margin-bottom:18px;padding-left:14px;border-left:3px solid var(--green);}
+.pillar-text{font-size:13px;color:var(--grey);line-height:1.85;}
+.pillar-text p+p{margin-top:10px;}
+.pillar-text strong{color:var(--ink);font-weight:600;}
+.courses-list{display:grid;grid-template-columns:1fr 1fr;gap:2px;}
+.course-item{background:white;padding:22px 26px;border-left:3px solid var(--grey-light);transition:border-color 0.2s,transform 0.2s;}
+.course-item:hover{border-color:var(--green);transform:translateX(4px);}
+.course-item-tag{font-size:8px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--green);margin-bottom:7px;}
+.course-item-name{font-family:'Playfair Display',serif;font-size:14.5px;font-weight:700;color:var(--ink);line-height:1.3;margin-bottom:7px;}
+.course-item-desc{font-size:11.5px;color:var(--grey);line-height:1.7;}
+.course-item-formats{display:flex;gap:5px;margin-top:10px;flex-wrap:wrap;}
+.fmt{font-size:8.5px;padding:3px 9px;background:var(--green-pale);color:var(--green-dark);font-weight:700;letter-spacing:1px;}
+
+.diff-section{background:linear-gradient(145deg,var(--green-dark) 0%,var(--green) 100%);padding:100px 0;position:relative;overflow:hidden;}
+.diff-section::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(255,255,255,0.06) 0%,transparent 70%);pointer-events:none;}
+.diff-title{font-family:'Playfair Display',serif;font-size:clamp(30px,4vw,50px);font-weight:900;color:white;line-height:1.15;max-width:620px;margin-bottom:52px;}
+.diff-title em{font-style:italic;color:var(--green-pale);}
+.diff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+.diff-item{padding:38px 34px;background:rgba(255,255,255,0.06);transition:background 0.3s;}
+.diff-item:hover{background:rgba(255,255,255,0.11);}
+.diff-num{font-family:'Playfair Display',serif;font-size:48px;font-weight:900;color:rgba(255,255,255,0.1);line-height:1;margin-bottom:10px;}
+.diff-name{font-size:14px;font-weight:700;color:white;margin-bottom:10px;line-height:1.3;}
+.diff-desc{font-size:12.5px;color:rgba(255,255,255,0.58);line-height:1.8;}
+
+.about-section{background:var(--white);padding:100px 0;}
+.about-inner{display:grid;grid-template-columns:1fr 460px;gap:80px;align-items:start;}
+.about-quote{font-family:'Playfair Display',serif;font-size:clamp(26px,3vw,42px);font-weight:400;font-style:italic;color:var(--ink);line-height:1.35;margin-bottom:28px;}
+.about-quote strong{font-weight:900;font-style:normal;color:var(--green-dark);}
+.about-bio{font-size:13.5px;color:var(--grey);line-height:1.9;}
+.about-bio p+p{margin-top:14px;}
+.about-bio strong{color:var(--ink);font-weight:600;}
+.about-card{background:var(--ink);padding:44px 40px;position:relative;}
+.about-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:var(--green);}
+.about-card-name{font-family:'Playfair Display',serif;font-size:24px;font-weight:900;color:white;line-height:1.1;margin-bottom:5px;}
+.about-card-role{font-size:9.5px;letter-spacing:3px;text-transform:uppercase;color:var(--green-light);font-weight:600;margin-bottom:24px;}
+.about-cred{padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.07);font-size:12px;color:rgba(255,255,255,0.5);line-height:1.5;}
+.about-cred:last-of-type{border-bottom:none;}
+.about-cred strong{color:rgba(255,255,255,0.82);font-weight:600;}
+.books-block{margin-top:24px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.1);}
+.books-label{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--amber);font-weight:700;margin-bottom:10px;}
+.book-title{font-family:'Playfair Display',serif;font-size:12px;font-style:italic;color:rgba(255,255,255,0.55);padding:4px 0;border-bottom:1px solid rgba(255,255,255,0.05);}
+
+.channels-strip{background:var(--grey-light);padding:56px 0;}
+.channels-inner{display:flex;align-items:center;gap:48px;flex-wrap:wrap;}
+.channels-label{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--grey);font-weight:700;white-space:nowrap;}
+.channel{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.channel-icon{font-size:20px;}
+.channel-name{font-size:12px;font-weight:700;color:var(--ink);}
+.channel-platform{font-size:10px;color:var(--grey);}
+
+.cta-section{background:var(--black);padding:100px 0;position:relative;overflow:hidden;}
+.cta-section::after{content:'';position:absolute;bottom:-100px;left:50%;transform:translateX(-50%);width:800px;height:400px;background:radial-gradient(ellipse,rgba(0,135,61,0.15) 0%,transparent 70%);pointer-events:none;}
+.cta-inner{position:relative;z-index:1;text-align:center;}
+.cta-tag{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--green-light);font-weight:700;margin-bottom:20px;display:block;}
+.cta-title{font-family:'Playfair Display',serif;font-size:clamp(34px,5vw,60px);font-weight:900;color:white;line-height:1.1;margin-bottom:18px;}
+.cta-title em{font-style:italic;color:var(--green-light);}
+.cta-sub{font-size:15px;color:rgba(255,255,255,0.48);max-width:540px;margin:0 auto 40px;line-height:1.8;}
+.cta-contacts{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:40px;}
+.cta-contact{padding:14px 26px;border:1px solid rgba(255,255,255,0.1);display:flex;flex-direction:column;gap:2px;transition:border-color 0.2s,background 0.2s;}
+.cta-contact:hover{border-color:var(--green);background:rgba(0,135,61,0.08);}
+.cta-contact-type{font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--green-light);font-weight:700;}
+.cta-contact-value{font-size:14px;color:white;font-weight:500;}
+.cta-disclaimer{font-size:11px;color:rgba(255,255,255,0.2);line-height:1.7;}
+
+footer{background:rgba(0,0,0,0.5);border-top:1px solid rgba(255,255,255,0.04);padding:24px 0;}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;}
+.footer-brand{font-size:12px;font-weight:700;color:rgba(255,255,255,0.35);}
+.footer-note{font-size:11px;color:rgba(255,255,255,0.2);}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(40px);}to{opacity:1;transform:translateY(0);}}
+.hero-eyebrow{animation:fadeUp 0.7s ease 0.1s both;}
+.hero-headline{animation:fadeUp 0.7s ease 0.25s both;}
+.hero-lead{animation:fadeUp 0.7s ease 0.4s both;}
+.hero-actions{animation:fadeUp 0.7s ease 0.55s both;}
+.hero-right{animation:fadeUp 0.7s ease 0.35s both;}
+
+@media(max-width:960px){
+  nav{padding:0 24px;}.nav-links{display:none;}
+  .hero-inner{grid-template-columns:1fr;padding:48px 24px 64px;}.hero-right{display:none;}
+  .pillar-content{grid-template-columns:1fr;gap:32px;padding:32px 24px;}
+  .courses-list{grid-template-columns:1fr;}
+  .diff-grid{grid-template-columns:1fr;}
+  .about-inner{grid-template-columns:1fr;}
+  .container{padding:0 24px;}
+  .problem-grid{grid-template-columns:1fr 1fr;padding:0 24px;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="#">
+    <div class="nav-icon">Â</div>
+    <div><div class="nav-name">Ânimo</div><div class="nav-sub">Desenvolvimento Humano</div></div>
+  </a>
+  <div class="nav-links">
+    <a href="#formacoes">Formações</a>
+    <a href="#diferenciais">Diferenciais</a>
+    <a href="#consultor">Consultor</a>
+    <a href="mailto:ricardo@animodh.com.br" class="nav-btn">Contato</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow">Portfólio de Treinamentos 2025</div>
+      <h1 class="hero-headline">Pessoas mais<br>saudáveis.<br><em>Organizações<br>mais humanas.</em></h1>
+      <p class="hero-lead">
+        Num mundo <strong>VUCA-BANI</strong> — volátil, ansioso, frágil e sem sentido — investir no desenvolvimento humano deixou de ser diferencial. É <strong>condição de sobrevivência</strong>. A Ânimo oferece formações que transformam ambientes de trabalho em lugares onde as pessoas florescem, colaboram e encontram propósito.
+      </p>
+      <div class="hero-actions">
+        <a href="#formacoes" class="btn-primary">Ver formações</a>
+        <a href="https://www.animodesenvolvimentohumano.com.br/atuacoes" target="_blank" class="btn-ghost">Atuações documentadas →</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="world-label">O contexto que chegou para ficar</div>
+      <div class="vuca-grid">
+        <div class="vuca-card"><div class="vuca-letter" style="color:#FF6B6B;">V</div><div class="vuca-word" style="color:#FF6B6B;">Volátil</div><div class="vuca-desc">Tudo muda rápido demais, sem aviso</div></div>
+        <div class="vuca-card"><div class="vuca-letter" style="color:#FFB347;">U</div><div class="vuca-word" style="color:#FFB347;">Incerto</div><div class="vuca-desc">O passado não prevê mais o futuro</div></div>
+        <div class="vuca-card"><div class="vuca-letter" style="color:#4FC3F7;">C</div><div class="vuca-word" style="color:#4FC3F7;">Complexo</div><div class="vuca-desc">Múltiplas variáveis sem causa-efeito simples</div></div>
+        <div class="vuca-card"><div class="vuca-letter" style="color:#CE93D8;">A</div><div class="vuca-word" style="color:#CE93D8;">Ambíguo</div><div class="vuca-desc">Realidades contraditórias ao mesmo tempo</div></div>
+      </div>
+      <div class="vuca-divider"><div class="vuca-divider-line"></div><div class="vuca-divider-text">E então chegou o BANI</div><div class="vuca-divider-line"></div></div>
+      <div class="vuca-grid">
+        <div class="vuca-card"><div class="vuca-letter" style="color:#FF8A65;">B</div><div class="vuca-word" style="color:#FF8A65;">Frágil</div><div class="vuca-desc">Sistemas sólidos que quebram de repente</div></div>
+        <div class="vuca-card"><div class="vuca-letter" style="color:#F06292;">A</div><div class="vuca-word" style="color:#F06292;">Ansioso</div><div class="vuca-desc">Cada decisão parece errada — o medo paralisa</div></div>
+        <div class="vuca-card"><div class="vuca-letter" style="color:#AED581;">N</div><div class="vuca-word" style="color:#AED581;">Não-linear</div><div class="vuca-desc">Pequenas causas, efeitos imensos</div></div>
+        <div class="vuca-card"><div class="vuca-letter" style="color:#00B352;">I</div><div class="vuca-word" style="color:#00B352;">Incompreensível</div><div class="vuca-desc">Dados existem — ninguém processa tudo</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM STRIP -->
+<div class="problem-strip">
+  <div class="problem-grid">
+    <div class="problem-item"><div class="problem-icon">🧠</div><div class="problem-title">Adoecimento silencioso</div><div class="problem-desc">Burnout, ansiedade e depressão crescem em todos os setores — público e privado</div></div>
+    <div class="problem-item"><div class="problem-icon">🧊</div><div class="problem-title">Relações líquidas</div><div class="problem-desc">Vínculos frágeis, comunicação reativa e conflitos que corroem equipes por dentro</div></div>
+    <div class="problem-item"><div class="problem-icon">🌀</div><div class="problem-title">Vazio de sentido</div><div class="problem-desc">Apatia, desmotivação e crenças limitantes que travam o potencial individual e coletivo</div></div>
+    <div class="problem-item"><div class="problem-icon">⚖️</div><div class="problem-title">Risco psicossocial real</div><div class="problem-desc">A NR1 chegou — e as organizações precisam responder com ação concreta, não só compliance</div></div>
+  </div>
+</div>
+
+<!-- NI3A STRIP -->
+<div style="background:linear-gradient(135deg,#1a0a2e 0%,#2d0a0a 100%);padding:80px 0;position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;opacity:0.04;background-image:repeating-linear-gradient(45deg,white 0,white 1px,transparent 1px,transparent 40px);pointer-events:none;"></div>
+  <div class="container" style="position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
+    <div>
+      <div style="font-size:9px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#F06292;margin-bottom:16px;">O humano que chegou junto</div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(28px,3.5vw,46px);font-weight:900;color:white;line-height:1.15;margin-bottom:20px;">Uma sociedade <em style="font-style:italic;color:#F06292;">NI3A.</em></h2>
+      <p style="font-size:15px;color:rgba(255,255,255,0.6);line-height:1.85;margin-bottom:16px;">O mundo VUCA-BANI produziu um tipo humano em crise. Uma sociedade que <strong style="color:rgba(255,255,255,0.9);">desaprendeu a escutar</strong> — a prestar atenção ao outro, às suas necessidades e expectativas. Muito voltada para si mesma.</p>
+      <p style="font-size:15px;color:rgba(255,255,255,0.6);line-height:1.85;margin-bottom:20px;">Essa síndrome coletiva repercute diretamente nas relações de trabalho, no atendimento ao público, na liderança e na convivência entre equipes.</p>
+      <p style="font-size:13px;color:rgba(255,255,255,0.3);font-style:italic;line-height:1.7;">É nesse contexto que os treinamentos da Ânimo se tornam não apenas relevantes — mas urgentes.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;">
+      <div style="padding:22px 20px;background:rgba(255,255,255,0.04);border-top:3px solid #FF6B6B;">
+        <div style="font-family:'Playfair Display',serif;font-size:38px;font-weight:900;color:#FF6B6B;line-height:1;margin-bottom:6px;">N</div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#FF6B6B;margin-bottom:6px;">Narcisista</div>
+        <div style="font-size:11.5px;color:rgba(255,255,255,0.42);line-height:1.6;">O ego no centro — dificuldade de reconhecer o outro como legítimo</div>
+      </div>
+      <div style="padding:22px 20px;background:rgba(255,255,255,0.04);border-top:3px solid #FFB347;">
+        <div style="font-family:'Playfair Display',serif;font-size:38px;font-weight:900;color:#FFB347;line-height:1;margin-bottom:6px;">I</div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#FFB347;margin-bottom:6px;">Individualista</div>
+        <div style="font-size:11.5px;color:rgba(255,255,255,0.42);line-height:1.6;">Relações instrumentais — o outro existe enquanto serve</div>
+      </div>
+      <div style="padding:22px 20px;background:rgba(255,255,255,0.04);border-top:3px solid #AED581;">
+        <div style="font-family:'Playfair Display',serif;font-size:38px;font-weight:900;color:#AED581;line-height:1;margin-bottom:6px;">A</div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#AED581;margin-bottom:6px;">Apática</div>
+        <div style="font-size:11.5px;color:rgba(255,255,255,0.42);line-height:1.6;">Indiferença ao sofrimento alheio — empatia em colapso</div>
+      </div>
+      <div style="padding:22px 20px;background:rgba(255,255,255,0.04);border-top:3px solid #F06292;">
+        <div style="font-family:'Playfair Display',serif;font-size:38px;font-weight:900;color:#F06292;line-height:1;margin-bottom:6px;">A</div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#F06292;margin-bottom:6px;">Ansiosa</div>
+        <div style="font-size:11.5px;color:rgba(255,255,255,0.42);line-height:1.6;">Medo crônico que paralisa, reage e adoece antes de pensar</div>
+      </div>
+      <div style="padding:22px 20px;background:rgba(255,255,255,0.04);border-top:3px solid #CE93D8;grid-column:1/-1;">
+        <div style="font-family:'Playfair Display',serif;font-size:38px;font-weight:900;color:#CE93D8;line-height:1;margin-bottom:6px;">A</div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#CE93D8;margin-bottom:6px;">Agressiva</div>
+        <div style="font-size:11.5px;color:rgba(255,255,255,0.42);line-height:1.6;">Comunicação que fere, fronteiras que violam, relações que destroem o que deveriam construir</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EPIDEMIC STRIP -->
+<div style="background:var(--ink);padding:64px 0;border-top:1px solid rgba(255,255,255,0.04);">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;margin-bottom:48px;">
+      <div style="padding:36px 32px;background:rgba(255,255,255,0.03);border-top:3px solid #F06292;text-align:center;">
+        <div style="font-family:'Playfair Display',serif;font-size:48px;font-weight:900;color:#F06292;line-height:1;margin-bottom:10px;">😶</div>
+        <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:white;margin-bottom:8px;">Depressão</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.4);line-height:1.7;">A epidemia silenciosa que apaga o prazer, o sentido e a vontade de estar no mundo</div>
+      </div>
+      <div style="padding:36px 32px;background:rgba(255,255,255,0.03);border-top:3px solid #FFB347;text-align:center;">
+        <div style="font-family:'Playfair Display',serif;font-size:48px;font-weight:900;color:#FFB347;line-height:1;margin-bottom:10px;">😰</div>
+        <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:white;margin-bottom:8px;">Ansiedade</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.4);line-height:1.7;">O medo crônico de um futuro que ainda não chegou — que paralisa no presente e adoece o corpo</div>
+      </div>
+      <div style="padding:36px 32px;background:rgba(255,255,255,0.03);border-top:3px solid #4FC3F7;text-align:center;">
+        <div style="font-family:'Playfair Display',serif;font-size:48px;font-weight:900;color:#4FC3F7;line-height:1;margin-bottom:10px;">🪟</div>
+        <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:white;margin-bottom:8px;">Solidão Existencial</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.4);line-height:1.7;">Cercado de pessoas, conectado em redes — e profundamente só. O vazio que nenhuma tela preenche</div>
+      </div>
+    </div>
+    <div style="text-align:center;max-width:760px;margin:0 auto;">
+      <p style="font-family:'Playfair Display',serif;font-size:clamp(20px,2.5vw,30px);font-weight:400;font-style:italic;color:rgba(255,255,255,0.85);line-height:1.5;margin-bottom:16px;">
+        "Depressão, ansiedade e solidão existencial viraram as novas epidemias do século XXI — numa sociedade intoxicada por adrenalina e cortisol."
+      </p>
+      <p style="font-size:12px;color:rgba(255,255,255,0.25);letter-spacing:2px;text-transform:uppercase;font-weight:600;">Prof. Ricardo de Faria Barros · Ânimo Desenvolvimento Humano</p>
+    </div>
+  </div>
+</div>
+
+<!-- FORMAÇÕES -->
+<section class="pillars-section" id="formacoes">
+  <div class="container">
+    <div class="section-eyebrow">Portfólio de Formações</div>
+    <h2 class="pillars-title">Seis eixos.<br><em>Uma só missão.</em></h2>
+    <p class="pillars-sub">Treinamentos aplicáveis a qualquer setor — público ou privado — com base científica, linguagem acessível e uma marca pedagógica inconfundível: <strong>pedagogias ativas e sensoriais</strong> que colocam o objeto de aprendizagem nas mãos dos próprios participantes, criando uma genuína <strong>comunidade de aprendizagem coletiva</strong>. Sem processos enfadonhos. Sem desconexão da realidade. Clique em cada eixo para explorar.</p>
+
+    <div class="pillar-tabs">
+      <button class="pillar-tab active" onclick="showPillar(0)">① Saúde Mental</button>
+      <button class="pillar-tab" onclick="showPillar(1)">② Longevidade</button>
+      <button class="pillar-tab" onclick="showPillar(2)">③ Riscos Psicossociais</button>
+      <button class="pillar-tab" onclick="showPillar(3)">④ Inteligências</button>
+      <button class="pillar-tab" onclick="showPillar(4)">⑤ Liderança e Sentido</button>
+      <button class="pillar-tab" onclick="showPillar(5)">⑥ Comunicação e Relações</button>
+    </div>
+
+    <div class="pillar-panel active">
+      <div class="pillar-content">
+        <div><div class="pillar-name">Saúde Mental e Bem-Estar</div><div class="pillar-tagline">"Ninguém dá o que não tem. Cuidar das pessoas é o investimento mais estratégico que uma organização pode fazer."</div><div class="pillar-text"><p>O adoecimento emocional tem um custo invisível mas mensurável: afastamentos, queda de produtividade, conflitos, turnover. Este eixo desenvolve as <strong>competências internas</strong> que permitem lidar com pressão sem se perder nela.</p><p>Com base na <strong>Psicologia Positiva, Neurociência e Logoterapia</strong>, as formações trabalham autogestão, regulação emocional, coping e florescimento sustentável.</p></div></div>
+        <div class="courses-list">
+          <div class="course-item"><div class="course-item-tag">Emoções · Regulação</div><div class="course-item-name">Gestão das Emoções no Trabalho</div><div class="course-item-desc">Reconhecer, nomear e regular estados emocionais — construindo respostas em vez de reações impulsivas.</div><div class="course-item-formats"><span class="fmt">Palestra</span><span class="fmt">Curso</span><span class="fmt">EAD</span></div></div>
+          <div class="course-item"><div class="course-item-tag">Autocuidado · Burnout</div><div class="course-item-name">Autogestão Emocional e Estratégias de Coping</div><div class="course-item-desc">Mapa pessoal de recursos para enfrentar estresse e sobrecarga. Ferramentas para usar já na semana seguinte.</div><div class="course-item-formats"><span class="fmt">Palestra</span><span class="fmt">Curso</span><span class="fmt">EAD</span></div></div>
+          <div class="course-item"><div class="course-item-tag">Corpo · Mente · Empresa</div><div class="course-item-name">Saúde Corporativa e Autocuidado Mental</div><div class="course-item-desc">Saúde mental como estratégia organizacional — práticas integradas à cultura da empresa.</div><div class="course-item-formats"><span class="fmt">Palestra</span><span class="fmt">Curso</span></div></div>
+          <div class="course-item"><div class="course-item-tag">Psicologia Positiva · PERMA</div><div class="course-item-name">Felicidade e Bem-Estar no Trabalho</div><div class="course-item-desc">O modelo PERMA e as cinco dimensões do florescimento — aplicados à realidade do trabalho cotidiano.</div><div class="course-item-formats"><span class="fmt">Palestra</span><span class="fmt">Curso</span><span class="fmt">EAD</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pillar-panel">
+      <div class="pillar-content">
+        <div><div class="pillar-name">Longevidade e Inclusão</div><div class="pillar-tagline">"O Brasil envelhece. As organizações que não se anteciparem serão ultrapassadas por uma realidade que já chegou."</div><div class="pillar-text"><p>Mais de 30 milhões de brasileiros têm 60 anos ou mais — e esse número dobra nas próximas décadas. O público longevo está em todo lugar: cliente, colaborador, liderança, paciente, cidadão.</p><p>Este eixo traz o conceito original de <strong>longelescência</strong> e o modelo <strong>3M</strong> — o cérebro Modulável, Moldado e Metamorfoseado — como fundamentos científicos da mudança em qualquer fase da vida.</p></div></div>
+        <div class="courses-list">
+          <div class="course-item"><div class="course-item-tag">60+ · Humanização · Intergeracionalidade</div><div class="course-item-name">Ambientes 60+ — Valorização, Acolhimento e Respeito</div><div class="course-item-desc">Prepara equipes para atender e conviver com o público longevo. Inclui protocolos de aferição institucional. Alinhado à PNASPI e HumanizaSUS.</div><div class="course-item-formats"><span class="fmt">Palestra</span><span class="fmt">Curso</span><span class="fmt">EAD</span></div></div>
+          <div class="course-item"><div class="course-item-tag">Propósito · Vínculos</div><div class="course-item-name">Longevidade com Qualidade de Vida</div><div class="course-item-desc">Longelescência, sentido e bem-estar na segunda metade da vida — para colaboradores e lideranças longevas.</div><div class="course-item-formats"><span class="fmt">Palestra</span><span class="fmt">Curso</span></div></div>
+          <div class="course-item"><div class="course-item-tag">Transição · Pós-Carreira</div><div class="course-item-name">Preparação para a Aposentadoria</div><div class="course-item-desc">Aposentadoria como travessia — não como fim. Identidade, sentido, finanças emocionais e novo projeto de vida.</div><div class="course-item-formats"><span class="fmt">Palestra</span><span class="fmt">Curso</span><span class="fmt">EAD</span></div></div>
+          <div class="course-item"><div class="course-item-tag">Neurociência · 3M</div><div class="course-item-name">Neuroplasticidade e Psicologia Positiva</div><div class="course-item-desc">O cérebro que se renova em qualquer fase — ciência da mudança como base para o desenvolvimento humano contínuo.</div><div class="course-item-formats"><span class="fmt">Palestra</span><span class="fmt">Curso</span><span class="fmt">EAD</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pillar-panel">
+      <div class="pillar-content">
+        <div><div class="pillar-name">Riscos Psicossociais</div><div class="pillar-tagline">"Cumprir a NR1 é o mínimo. Construir uma cultura que não adoece quem nela trabalha é o objetivo real."</div><div class="pillar-text"><p>A atualização da <strong>NR1</strong> formalizou o que já era real: riscos psicossociais são riscos ocupacionais gerenciáveis. Assédio, burnout, sofrimento emocional e conflitos deterioram pessoas e resultados.</p><p>As formações oferecem um <strong>mapa diagnóstico e plano de ação</strong> — da identificação dos riscos à construção de ambientes emocionalmente mais seguros.</p></div></div>
+        <div class="courses-list">
+          <div class="course-item"><div class="course-item-tag">NR1 · Compliance · Prevenção</div><div class="course-item-name">Riscos Psicossociais no Trabalho</div><div class="course-item-desc">Identificação, prevenção e gestão dos riscos psicossociais. Da norma à prática — com ferramentas aplicáveis imediatamente.</div><div class="course-item-formats"><span class="fmt">Palestra</span><span class="fmt">Curso</span><span class="fmt">EAD</span></div></div>
+          <div class="course-item"><div class="course-item-tag">Cultura · Proteção</div><div class="course-item-name">Prevenção ao Assédio Moral e Sexual</div><div class="course-item-desc">Reconhecer, nomear e combater. Cultura organizacional baseada em respeito e responsabilidade coletiva.</div><div class="course-item-formats"><span class="fmt">Palestra</span><span class="fmt">Curso</span></div></div>
+          <div class="course-item"><div class="course-item-tag">Escola · Empresa · Comunidade</div><div class="course-item-name">Bullying — Conhecer, Prevenir e Combater</div><div class="course-item-desc">Do bullying ao cyberbullying — impactos emocionais, identificação de padrões e estratégias de intervenção.</div><div class="course-item-formats"><span class="fmt">Palestra</span><span class="fmt">Curso</span></div></div>
+          <div class="course-item"><div class="course-item-tag">Equipes · Diálogo</div><div class="course-item-name">Gestão de Conflitos e Feedbacks Produtivos</div><div class="course-item-desc">Transformar conflito em crescimento — com escuta qualificada, feedback e diálogo que realmente resolve.</div><div class="course-item-formats"><span class="fmt">Palestra</span><span class="fmt">Curso</span><span class="fmt">EAD</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pillar-panel">
+      <div class="pillar-content">
+        <div><div class="pillar-name">Inteligências Aplicadas</div><div class="pillar-tagline">"QI abre portas. IE mantém você nelas. IS constrói as pontes entre você e quem importa."</div><div class="pillar-text"><p>As competências do século XXI não são técnicas — são humanas. IE, IS e IP formam o tripé do profissional que performa sob pressão, lidera com presença e constrói relações que duram.</p><p>Baseados em <strong>Goleman, Seligman e Chamine</strong>, estes cursos traduzem ciência em comportamento concreto.</p></div></div>
+        <div class="courses-list">
+          <div class="course-item"><div class="course-item-tag">Goleman · 5 Domínios</div><div class="course-item-name">Inteligência Emocional no Trabalho</div><div class="course-item-desc">Autoconsciência, autogestão, empatia, motivação e habilidades sociais — os cinco domínios aplicados ao contexto profissional.</div><div class="course-item-formats"><span class="fmt">Palestra</span><span class="fmt">Curso</span><span class="fmt">EAD</span></div></div>
+          <div class="course-item"><div class="course-item-tag">Goleman · 2 Dimensões · 8 Componentes</div><div class="course-item-name">Inteligência Social no Trabalho</div><div class="course-item-desc">Consciência Social (empatia primária, sintonia, precisão empática, cognição social) e Aptidão Social (sincronia, autoapresentação, influência, cuidado).</div><div class="course-item-formats"><span class="fmt">Palestra</span><span class="fmt">Curso</span><span class="fmt">EAD</span></div></div>
+          <div class="course-item"><div class="course-item-tag">Chamine · PQ · Sabotadores</div><div class="course-item-name">Inteligência Positiva no Trabalho</div><div class="course-item-desc">Os 10 Sabotadores internos e como fortalecer o "Sábio" interior — para responder ao invés de reagir sob pressão.</div><div class="course-item-formats"><span class="fmt">Palestra</span><span class="fmt">Curso</span></div></div>
+          <div class="course-item"><div class="course-item-tag">Mindset · Autoconhecimento</div><div class="course-item-name">Autoconsciência e Autogestão</div><div class="course-item-desc">Crenças limitantes, padrões emocionais e mapa de forças pessoais — para quem quer se conhecer para se transformar.</div><div class="course-item-formats"><span class="fmt">Palestra</span><span class="fmt">Curso</span><span class="fmt">EAD</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pillar-panel">
+      <div class="pillar-content">
+        <div><div class="pillar-name">Liderança e Sentido</div><div class="pillar-tagline">"Liderar sem sentido esgota. O líder que encontrou o seu porquê sustenta equipes inteiras."</div><div class="pillar-text"><p>Este eixo integra <strong>Logoterapia de Frankl</strong> com Psicologia Positiva para tratar o tema mais urgente do mundo do trabalho: o vazio existencial que paralisa líderes e equipes.</p><p>Combate a apatia e a desmotivação ressignificando o trabalho como espaço de sentido — com a <strong>neuroplasticidade</strong> como fundamento científico da mudança possível.</p></div></div>
+        <div class="courses-list">
+          <div class="course-item"><div class="course-item-tag">Psicologia Positiva · Forças</div><div class="course-item-name">Liderança Positiva</div><div class="course-item-desc">Liderar potencializando forças — criando ambientes de florescimento, engajamento real e resultados sustentáveis.</div><div class="course-item-formats"><span class="fmt">Palestra</span><span class="fmt">Curso</span><span class="fmt">EAD</span></div></div>
+          <div class="course-item"><div class="course-item-tag">Frankl · Logoterapia</div><div class="course-item-name">Liderança e Sentidos do Trabalho</div><div class="course-item-desc">Propósito como ferramenta de gestão. Combate ao vazio existencial, à apatia e à desmotivação no ambiente organizacional.</div><div class="course-item-formats"><span class="fmt">Palestra</span><span class="fmt">Curso</span><span class="fmt">EAD</span></div></div>
+          <div class="course-item"><div class="course-item-tag">3M · Neurociência · Mudança</div><div class="course-item-name">Neuroplasticidade e Psicologia Positiva</div><div class="course-item-desc">Cérebro Modulável, Moldado e Metamorfoseado — a ciência de que mudar é possível, em qualquer fase da vida e carreira.</div><div class="course-item-formats"><span class="fmt">Palestra</span><span class="fmt">Curso</span><span class="fmt">EAD</span></div></div>
+          <div class="course-item"><div class="course-item-tag">Pessoas · Alta Performance</div><div class="course-item-name">Gestão de Equipes com Resultados</div><div class="course-item-desc">Equipes construídas sobre confiança, clareza de papéis e cultura de colaboração — performance sustentável de verdade.</div><div class="course-item-formats"><span class="fmt">Palestra</span><span class="fmt">Curso</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pillar-panel">
+      <div class="pillar-content">
+        <div><div class="pillar-name">Comunicação e Relações</div><div class="pillar-tagline">"A maioria dos problemas organizacionais começa com uma conversa que não aconteceu — ou aconteceu da forma errada."</div><div class="pillar-text"><p>Comunicação assertiva, humanização e negociação são o <strong>tecido conjuntivo</strong> de qualquer organização que funciona. Redes de colaboração e parcerias se constroem com linguagem e empatia.</p><p>Este eixo desenvolve a capacidade de <strong>dizer o que precisa ser dito</strong>, construir vínculos e negociar com integridade — em qualquer contexto profissional.</p></div></div>
+        <div class="courses-list">
+          <div class="course-item"><div class="course-item-tag">Clareza · Respeito · Impacto</div><div class="course-item-name">Comunicação Assertiva e Persuasiva</div><div class="course-item-desc">Dizer o que precisa ser dito — com clareza, sem agressividade e com capacidade real de mover pessoas.</div><div class="course-item-formats"><span class="fmt">Palestra</span><span class="fmt">Curso</span><span class="fmt">EAD</span></div></div>
+          <div class="course-item"><div class="course-item-tag">Jornada · Empatia · Escuta · Vínculo</div><div class="course-item-name">Atendimento Humanizado — A Jornada do Cliente, Cidadão e Usuário</div><div class="course-item-desc">Cada ponto de contato é uma oportunidade de cuidar — ou de afastar. Este curso trabalha as questões cruciais do atendimento na perspectiva de quem é atendido: como o cliente, o cidadão ou o usuário vive a experiência desde o primeiro contato até a resolução. Aborda escuta ativa, linguagem acessível, presença empática, gestão de expectativas e a construção de vínculos que geram confiança e fidelização. Para equipes de atendimento, recepção, saúde, serviço público e gestão de relacionamento.</div><div class="course-item-formats"><span class="fmt">Palestra</span><span class="fmt">Curso</span><span class="fmt">EAD</span></div></div>
+          <div class="course-item"><div class="course-item-tag">Estratégia · Acordos</div><div class="course-item-name">Negociação Estratégica e Avançada</div><div class="course-item-desc">Técnicas aplicadas ao cotidiano profissional — construindo acordos que respeitam todas as partes e geram resultados reais.</div><div class="course-item-formats"><span class="fmt">Palestra</span><span class="fmt">Curso</span><span class="fmt">EAD</span></div></div>
+          <div class="course-item"><div class="course-item-tag">Redes · Cooperação · Empatia</div><div class="course-item-name">Competências Socioemocionais e Relações</div><div class="course-item-desc">Redes de colaboração, parcerias e culturas de cuidado — as competências que transformam ambientes individualistas em comunidades.</div><div class="course-item-formats"><span class="fmt">Palestra</span><span class="fmt">Curso</span></div></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- DIFFERENTIALS -->
+<section class="diff-section" id="diferenciais">
+  <div class="container">
+    <h2 class="diff-title">Por que a Ânimo?<br><em>Porque formação sem alma não transforma.</em></h2>
+    <div class="diff-grid">
+      <div class="diff-item"><div class="diff-num">01</div><div class="diff-name">Conteúdo científico, linguagem humana</div><div class="diff-desc">Psicologia Positiva, Neurociência, Logoterapia e Inteligência Social — traduzidos em experiências que chegam para todo mundo, sem perder o rigor.</div></div>
+      <div class="diff-item"><div class="diff-num">02</div><div class="diff-name">Sempre customizado à realidade local</div><div class="diff-desc">Nada de pacote pronto. Cada formação parte da cultura, das demandas e da linguagem da equipe contratante. O grupo é co-autor do processo.</div></div>
+      <div class="diff-item"><div class="diff-num">03</div><div class="diff-name">Atuações documentadas e bem avaliadas</div><div class="diff-desc">Histórico real em instituições públicas e privadas — STF, ESMPU, MPT, Embrapa, Itaipu, Copel, Hospitais Universitários e muito mais.</div></div>
+      <div class="diff-item"><div class="diff-num">04</div><div class="diff-name">Comunidade de aprendizagem coletiva</div><div class="diff-desc">A marca maior das formações da Ânimo é a criação de uma <strong style="color:white;">comunidade de aprendizagem</strong> — onde o grupo constrói o conhecimento junto. Por meio de <strong style="color:white;">pedagogias ativas e sensoriais</strong>, o objeto de aprendizagem vai para as mãos dos próprios sujeitos. Sem processos enfadonhos, sem desconexão da realidade. Alegre, lúdico, dinâmico — e profundamente transformador.</div></div>
+      <div class="diff-item"><div class="diff-num">05</div><div class="diff-name">Formatos flexíveis para qualquer contexto</div><div class="diff-desc">Palestra de sensibilização, curso presencial modular ou EAD — com carga horária definida junto com a área contratante. Sem tamanho único.</div></div>
+      <div class="diff-item"><div class="diff-num">06</div><div class="diff-name">Consultor que pensa em público</div><div class="diff-desc">Podcast LongeViver · Blog O Bode com Farinha (600+ textos) · Canal Positiva Atitude no YouTube · Site Plena Longevidade. Produção contínua de conteúdo.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section" id="consultor">
+  <div class="container">
+    <div class="about-inner">
+      <div>
+        <div class="section-eyebrow">O Consultor</div>
+        <p class="about-quote">"Somos inacabados — esboços de nós mesmos em permanente elaboração. É na relação com o outro onde mais aprenderemos sobre <strong>a vida e o viver.</strong>"</p>
+        <div class="about-bio">
+          <p><strong>Ricardo de Faria Barros</strong> é psicólogo, escritor, professor e consultor em desenvolvimento humano e longevidade. Com mais de 30 anos de atuação, construiu uma trajetória que cruza academia, gestão pública e desenvolvimento de pessoas — sempre com uma voz ao mesmo tempo rigorosa e poética.</p>
+          <p>É criador do conceito de <strong>longelescência</strong> — a nova longevidade como fase de reinvenção, curiosidade e pertencimento — e do modelo <strong>3M</strong>: o cérebro Modulável, Moldado e Metamorfoseado pela neuroplasticidade. Suas formações são reconhecidas pela leveza com que traduzem ciência complexa em ferramentas de uso imediato.</p>
+          <p>Professor de pós-graduação no <strong>IBMEC Brasília</strong> (Inteligência Emocional e Autogestão; Negociação) e na <strong>ESMPU</strong> (Modelos de Gestão e o Trabalho). Especializando em Saúde do Idoso pela <strong>PUC-PR</strong> e consultor de Longevidade no <strong>Projeto 70+ da ANABB</strong>. Membro da Associação Internacional de Psicologia Positiva.</p>
+          <p>Natural de Campina Grande-PB, reside em Brasília desde 1999. Pai de quatro filhos, avô de quatro netos — e profundamente convicto de que <em>o amanhã será melhor.</em></p>
+        </div>
+      </div>
+      <div>
+        <div class="about-card">
+          <div class="about-card-name">Prof. Ricardo<br>de Faria Barros</div>
+          <div class="about-card-role">Psicólogo · Coach · Escritor · Consultor</div>
+          <div class="about-cred"><strong>Mestre</strong> em Gestão Social e Trabalho — UnB</div>
+          <div class="about-cred"><strong>Especialista</strong> em Psicologia Positiva — PUC-RS</div>
+          <div class="about-cred"><strong>Especialista</strong> em Gestão de Pessoas — USP</div>
+          <div class="about-cred"><strong>Especializando</strong> em Saúde do Idoso — PUC-PR</div>
+          <div class="about-cred"><strong>Logoterapia</strong> — Viktor Frankl Institute (UEPB)</div>
+          <div class="about-cred"><strong>Coach</strong> — SLAC · Sociedade Latino-Americana de Coaching</div>
+          <div class="about-cred"><strong>Prof. IBMEC</strong> — IE & Autogestão · Negociação</div>
+          <div class="about-cred"><strong>Prof. ESMPU</strong> — Modelos de Gestão e o Trabalho</div>
+          <div class="books-block">
+            <div class="books-label">Obras Publicadas</div>
+            <div class="book-title">Sobre a Vida e o Viver</div>
+            <div class="book-title">Apanhadores de Possibilidades nos Campos do Infinito</div>
+            <div class="book-title">Aposentei-me, e Agora?</div>
+            <div class="book-title">Estatutos das Longevidades</div>
+            <div class="book-title">Manual da Longevidade Positiva</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHANNELS -->
+<div class="channels-strip">
+  <div class="container">
+    <div class="channels-inner">
+      <div class="channels-label">Canais de conteúdo</div>
+      <a href="#" class="channel"><span class="channel-icon">🎙️</span><div><div class="channel-name">LongeViver</div><div class="channel-platform">Podcast · Spotify</div></div></a>
+      <a href="https://www.animodesenvolvimentohumano.com.br" target="_blank" class="channel"><span class="channel-icon">🌐</span><div><div class="channel-name">Plena Longevidade</div><div class="channel-platform">Site</div></div></a>
+      <a href="https://bodecomfarinha.blogspot.com" target="_blank" class="channel"><span class="channel-icon">✍️</span><div><div class="channel-name">O Bode com Farinha</div><div class="channel-platform">Blog · 600+ textos</div></div></a>
+      <a href="https://www.youtube.com/@positivaatitude" target="_blank" class="channel"><span class="channel-icon">▶️</span><div><div class="channel-name">Positiva Atitude</div><div class="channel-platform">Canal · YouTube</div></div></a>
+      <a href="https://www.animodh.com.br" target="_blank" class="channel"><span class="channel-icon">🏢</span><div><div class="channel-name">Ânimo DH</div><div class="channel-platform">animodh.com.br</div></div></a>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-inner">
+      <span class="cta-tag">Próximo passo</span>
+      <h2 class="cta-title">Vamos conversar sobre<br><em>o que a sua equipe precisa?</em></h2>
+      <p class="cta-sub">Disponível para reunião de apresentação do portfólio — presencial em Brasília ou online. Proposta customizada, carga horária e formato definidos em conjunto com a área contratante.</p>
+      <div class="cta-contacts">
+        <div class="cta-contact"><span class="cta-contact-type">E-mail</span><span class="cta-contact-value">ricardo@animodh.com.br</span></div>
+        <div class="cta-contact"><span class="cta-contact-type">WhatsApp</span><span class="cta-contact-value">(61) 99311-2906</span></div>
+        <div class="cta-contact"><span class="cta-contact-type">Localização</span><span class="cta-contact-value">Brasília · DF</span></div>
+        <div class="cta-contact"><span class="cta-contact-type">Site</span><span class="cta-contact-value">www.animodh.com.br</span></div>
+      </div>
+      <div class="cta-disclaimer">
+        Setor público ou privado · Presencial ou EAD · Palestra, curso ou programa continuado<br>
+        Atuações documentadas e bem avaliadas em animodesenvolvimentohumano.com.br/atuacoes
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">Ânimo Desenvolvimento Humano · CNPJ 27.241.337/0001-47</div>
+      <div class="footer-note">Prof. Ricardo de Faria Barros · Psicólogo CRP 01/7844 · Brasília, DF</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+function showPillar(i){
+  document.querySelectorAll('.pillar-tab').forEach((t,j)=>t.classList.toggle('active',i===j));
+  document.querySelectorAll('.pillar-panel').forEach((p,j)=>p.classList.toggle('active',i===j));
+}
+</script>
+</body>
+</html>
